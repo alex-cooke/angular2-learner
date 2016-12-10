@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = {
     entry: {
@@ -10,7 +11,7 @@ module.exports = {
     },
     output: {
         path: path.resolve("./build/"),
-        filename: '[name].js'
+        filename: '[name].[hash].js'
     },
     //  Choose a developer tool to enhance debugging
     //  https://webpack.github.io/docs/configuration.html#devtool
@@ -20,16 +21,19 @@ module.exports = {
         exclude: /node_modules/
     },
     plugins: [
-        // Inject script and link tags into html files
+        //  Inject script and link tags into html files
         //  https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
             template: './source/index.html'
         }),
         //  Generate common chunks of code
         //  https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-        new CommonsChunkPlugin({
+        new webpack.optimize.CommonsChunkPlugin({
             name: ['lib']
-        })
+        }),
+        //  Hash the files using MD5 so that their names change when the content changes
+        //  https://www.npmjs.com/package/webpack-md5-hash
+        new WebpackMd5Hash(),
     ],
     module: {
         loaders: [
