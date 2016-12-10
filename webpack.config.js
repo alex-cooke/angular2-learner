@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const WebpackMd5Hash = require('webpack-md5-hash');
 
-module.exports = {
+const config = {
     entry: {
         lib: './source/lib.ts',
         app: './source/app.ts'
@@ -33,7 +32,7 @@ module.exports = {
         }),
         //  Hash the files using MD5 so that their names change when the content changes
         //  https://www.npmjs.com/package/webpack-md5-hash
-        new WebpackMd5Hash(),
+        new WebpackMd5Hash()
     ],
     module: {
         loaders: [
@@ -60,6 +59,31 @@ module.exports = {
     }
 };
 
+//  Production
+var production = false;
+if (production) {
+
+    //  remove sourcemap generation
+    delete config.devtool;
+
+    //  Uglify and minify the output
+    //  https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+        //        debug: true,
+        minimize: true,
+        //      sourceMap: true,
+        output: {
+            comments: false
+        },
+        compressor: {
+            warnings: false
+        }
+    }));
+
+
+}
+
+module.exports = config;
 
 // // Helper functions
 // function root(args) {
