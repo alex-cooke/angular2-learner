@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
+
   selector: 'my-app',
-  template: `
-<h1>{{ message }}</h1>
-<hr>
-<div>
-  <div *ngFor="let item of items">{{ item }}</div>
-</div>
-<div *ngIf="items.length">You have {{ items.length }} items</div>
-`
+  templateUrl: "./template.html"
 })
-export class AppComponent {
+export class HomeComponent {
 
   message: string;
   items: any[];
@@ -26,7 +20,6 @@ export class AppComponent {
       'item 2',
       'item 3'
     ];
-
 
   }
 }

@@ -10,7 +10,8 @@ const config = {
     },
     output: {
         path: path.resolve("./build/"),
-        filename: '[name].[hash].js'
+        filename: '[name].[hash].js',
+        publicPath: '/'
     },
     //  Choose a developer tool to enhance debugging
     //  https://webpack.github.io/docs/configuration.html#devtool
@@ -37,10 +38,16 @@ const config = {
     module: {
         loaders: [
             //  TypeScript - https://github.com/TypeStrong/ts-loader
+            //  Angular2 templates - https://github.com/TheLarkInn/angular2-template-loader
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader'
+                loaders: ['ts-loader', 'angular2-template-loader?keepUrl=true']
             },
+            /* Embed files. */
+            {
+                test: /\.(html|css)$/,
+                loader: 'raw-loader'
+            }
         ]
     },
     devServer: {
