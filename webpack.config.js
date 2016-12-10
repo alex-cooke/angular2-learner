@@ -16,7 +16,7 @@ module.exports = {
     },
     //  Choose a developer tool to enhance debugging
     //  https://webpack.github.io/docs/configuration.html#devtool
-    devtoo: '#eval',
+    devtool: 'eval',
     resolve: {
         extensions: ['', '.ts', '.js'],
         exclude: /node_modules/
