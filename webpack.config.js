@@ -6,9 +6,7 @@ const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 module.exports = {
     entry: {
         lib: './source/lib.ts',
-        //   'polyfills': './source/polyfills.ts',
-        //   'vendor': './source/vendor.ts',
-        index: './source/index.ts'
+        app: './source/app.ts'
     },
     output: {
         path: path.resolve("./build/"),
