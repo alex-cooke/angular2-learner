@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 module.exports = {
     entry: {
-        polyfills: './source/polyfills.ts',
+        lib: './source/lib.ts',
         //   'polyfills': './source/polyfills.ts',
         //   'vendor': './source/vendor.ts',
         index: './source/index.ts'
@@ -13,8 +14,8 @@ module.exports = {
         path: path.resolve("./build/"),
         filename: '[name].js'
     },
-    //  Choose a developer tool to enhance debugging. - https://webpack.github.io/docs/configuration.html#devtool
-    //  devtool: 'inline-source-map',
+    //  Choose a developer tool to enhance debugging
+    //  https://webpack.github.io/docs/configuration.html#devtool
     devtoo: '#eval',
     resolve: {
         extensions: ['', '.ts', '.js'],
@@ -22,9 +23,14 @@ module.exports = {
     },
     plugins: [
         // Inject script and link tags into html files
-        // Reference: https://github.com/ampedandwired/html-webpack-plugin
+        //  https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
             template: './source/index.html'
+        }),
+        //  Generate common chunks of code
+        //  https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
+        new CommonsChunkPlugin({
+            name: ['lib']
         })
     ],
     module: {
