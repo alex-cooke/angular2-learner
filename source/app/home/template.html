@@ -1,8 +1,15 @@
-<div>{{ message }}</div>
+<div>Interpolation: {{ message }}</div>
 <hr>
 <div>
+    Two way
+    <input [(ngModel)]="message" />
+</div>
+<div> One way
+    <input [value]="message" />
+</div>
+<div>
     <ul>
-        <li *ngFor="let item of items">{{ item }}</li>
+        <li (click)="remove(item)" *ngFor="let item of items">{{ item }}</li>
     </ul>
     <div *ngIf="items.length">more</div>
 </div>

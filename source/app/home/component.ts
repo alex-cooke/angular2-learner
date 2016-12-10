@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
+import { MyService } from '../providers/MyService';
 
 @Component({
 
-  selector: 'my-app',
-  templateUrl: "./template.html"
+    selector: 'my-app',
+    templateUrl: "./template.html"
 })
 export class HomeComponent {
 
-  message: string;
-  items: any[];
+    message: string;
+    items: any[];
 
-  constructor() {
+    remove(item: any) {
+        this.items.splice(this.items.indexOf(item), 1);
+    }
+    constructor(private myService: MyService) {
 
-    this.message = "Hello, World!";
-    console.log(this.message);
+        this.items = myService.getItems();
 
-    this.items = [
-      'item 1',
-      'item 2',
-      'item 3'
-    ];
+        this.message = "Hello, World!";
 
-  }
+
+    }
 }

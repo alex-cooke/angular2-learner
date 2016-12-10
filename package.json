@@ -22,6 +22,7 @@
     "@angular/common": "^2.2.4",
     "@angular/compiler": "^2.2.4",
     "@angular/core": "^2.2.4",
+    "@angular/forms": "^2.3.0",
     "@angular/platform-browser": "^2.2.4",
     "@angular/platform-browser-dynamic": "^2.2.4",
     "@types/core-js": "^0.9.35",
