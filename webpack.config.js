@@ -13,6 +13,9 @@ module.exports = {
         path: path.resolve("./build/"),
         filename: '[name].js'
     },
+    //  Choose a developer tool to enhance debugging. - https://webpack.github.io/docs/configuration.html#devtool
+    //  devtool: 'inline-source-map',
+    devtoo: '#eval',
     resolve: {
         extensions: ['', '.ts', '.js'],
         exclude: /node_modules/
