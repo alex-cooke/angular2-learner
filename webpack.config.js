@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
+        polyfills: './source/polyfills.ts',
         //   'polyfills': './source/polyfills.ts',
         //   'vendor': './source/vendor.ts',
         index: './source/index.ts'
