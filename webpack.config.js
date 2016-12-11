@@ -41,7 +41,7 @@ const config = {
             //  Angular2 templates - https://github.com/TheLarkInn/angular2-template-loader
             {
                 test: /\.tsx?$/,
-                loaders: ['ts-loader', 'angular2-template-loader?keepUrl=true']
+                loaders: ['ts-loader', 'angular2-template-loader']
             },
             /* Embed files. */
             {

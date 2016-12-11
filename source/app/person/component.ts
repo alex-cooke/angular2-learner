@@ -4,7 +4,8 @@ import { Person } from './model';
 @Component({
 
     selector: 'my-person',
-    templateUrl: "./template.html"
+    templateUrl: "./template.html",
+    styleUrls: ['./style.css']
 })
 export class PersonComponent {
 

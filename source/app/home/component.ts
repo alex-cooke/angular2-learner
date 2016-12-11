@@ -5,7 +5,8 @@ import { Person } from '../person/model';
 @Component({
 
     selector: 'my-app',
-    templateUrl: "./template.html"
+    templateUrl: "./template.html",
+    styleUrls: ['./style.css']
 })
 export class HomeComponent {
 
