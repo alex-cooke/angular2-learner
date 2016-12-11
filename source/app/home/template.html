@@ -11,8 +11,9 @@
     <button (click)="resetMessage('Reset, world!')">Reset</button>
 </div>
 <div>
-    <div *ngFor="let item of items">
-        <my-person [model]="item"></my-person>
+    <my-person [model]="person" *ngFor="let person of items" (click)="selectPerson(person)"></my-person>
+    <div *ngIf="selectedPerson">
+        <h4>Selected Person: {{ selectedPerson.lastName }}, {{selectedPerson.firstName}}</h4>
     </div>
     <h4>Summary</h4>
     <div *ngIf="items.length">{{ items.length }} "People"</div>

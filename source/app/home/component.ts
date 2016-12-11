@@ -12,10 +12,15 @@ export class HomeComponent {
     message: string;
     items: Person[];
 
+    selectedPerson: Person;
+
     resetMessage(message: string) {
         this.message = message;
     }
 
+    selectPerson(person: Person) {
+        this.selectedPerson = person;
+    }
     constructor(private personService: PersonService) {
 
         this.items = personService.getItems();
