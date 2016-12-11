@@ -7,9 +7,13 @@
 <div> One way
     <input [value]="message" />
 </div>
+<div>Event
+    <button (click)="resetMessage('Reset, world!')">Reset</button>
+</div>
 <div>
-    <ul>
-        <li (click)="remove(item)" *ngFor="let item of items">{{ item }}</li>
-    </ul>
-    <div *ngIf="items.length">more</div>
+    <div *ngFor="let item of items">
+        <my-person [model]="item"></my-person>
+    </div>
+    <h4>Summary</h4>
+    <div *ngIf="items.length">{{ items.length }} "People"</div>
 </div>

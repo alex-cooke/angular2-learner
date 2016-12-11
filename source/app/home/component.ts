@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MyService } from '../providers/MyService';
+import { PersonService } from '../providers/PersonService';
+import { Person } from '../person/model';
 
 @Component({
 
@@ -9,14 +10,15 @@ import { MyService } from '../providers/MyService';
 export class HomeComponent {
 
     message: string;
-    items: any[];
+    items: Person[];
 
-    remove(item: any) {
-        this.items.splice(this.items.indexOf(item), 1);
+    resetMessage(message: string) {
+        this.message = message;
     }
-    constructor(private myService: MyService) {
 
-        this.items = myService.getItems();
+    constructor(private personService: PersonService) {
+
+        this.items = personService.getItems();
 
         this.message = "Hello, World!";
 

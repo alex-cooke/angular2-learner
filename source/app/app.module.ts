@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './home/component';
 import { FormsModule } from '@angular/forms';
-import { MyService } from './providers/MyService';
+import { PersonService } from './providers/PersonService';
+import { PersonComponent } from './person/component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
-    declarations: [HomeComponent],
+    declarations: [HomeComponent, PersonComponent],
     bootstrap: [HomeComponent],
-    providers: [MyService]
+    providers: [PersonService]
 })
 export class AppModule {
 }
