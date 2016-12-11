@@ -11,7 +11,7 @@
     <button (click)="resetMessage('Reset, world!')">Reset</button>
 </div>
 <div>
-    <my-person [model]="person" *ngFor="let person of items" (click)="selectPerson(person)"></my-person>
+    <my-person [model]="person" *ngFor="let person of items" (onSelect)="selectPerson($event)"></my-person>
     <div *ngIf="selectedPerson">
         <h4>Selected Person: {{ selectedPerson.lastName }}, {{selectedPerson.firstName}}</h4>
     </div>

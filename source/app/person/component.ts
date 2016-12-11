@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from './model';
 
 @Component({
@@ -8,7 +8,13 @@ import { Person } from './model';
 })
 export class PersonComponent {
 
+    @Output()
+    onSelect = new EventEmitter<Person>();
+
     @Input()
     model: Person;
 
+    select() {
+        this.onSelect.emit(this.model);
+    }
 }
